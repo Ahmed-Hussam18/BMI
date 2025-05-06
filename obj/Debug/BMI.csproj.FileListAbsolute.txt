@@ -1,0 +1,10 @@
+C:\Users\medo1\Desktop\BMI\BMI\obj\Debug\BMI.csproj.AssemblyReference.cache
+C:\Users\medo1\Desktop\BMI\BMI\obj\Debug\BMI.Properties.Resources.resources
+C:\Users\medo1\Desktop\BMI\BMI\obj\Debug\BMI.csproj.GenerateResource.cache
+C:\Users\medo1\Desktop\BMI\BMI\obj\Debug\BMI.csproj.CoreCompileInputs.cache
+C:\Users\medo1\Desktop\BMI\BMI\bin\Debug\BMI.exe.config
+C:\Users\medo1\Desktop\BMI\BMI\bin\Debug\BMI.exe
+C:\Users\medo1\Desktop\BMI\BMI\bin\Debug\BMI.pdb
+C:\Users\medo1\Desktop\BMI\BMI\obj\Debug\BMI.Form1.resources
+C:\Users\medo1\Desktop\BMI\BMI\obj\Debug\BMI.exe
+C:\Users\medo1\Desktop\BMI\BMI\obj\Debug\BMI.pdb
