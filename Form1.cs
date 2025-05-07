@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -20,27 +21,42 @@ namespace BMI_CALCULATOR
         }
 
         private void CalculateButton_Click(object sender, EventArgs e)
+{
+    try
+    {
+        string nameInput = NameTextBox.Text.Trim();
+        if (string.IsNullOrWhiteSpace(nameInput) || !Regex.IsMatch(nameInput, @"^[a-zA-Z\s]+$"))
         {
-            try
-            {
-                User _user = new User();
-
-                _user.Name = NameTextBox.Text;
-                _user.Age = int.Parse(AgeTextBox.Text);
-                _user.Weight = double.Parse(WeightTextBox.Text);
-                _user.HeightCm = double.Parse(HeightTextBox.Text);
-
-                _user.CalculateBmI();
-                Users.Add(_user);
-                MessageBox.Show($"Hello {_user.Name}\n Your BMI Is:{_user.BMI} \n{_user.Category}");
-                SaveUserInfo(_user.Name, _user.HeightCm, _user.Weight, _user.BMI);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error:" + ex.Message);
-            }
-            
+            MessageBox.Show("Please enter a valid name (letters and spaces only).");
+            return;
         }
+
+        if (!int.TryParse(AgeTextBox.Text, out int age) ||
+            !double.TryParse(WeightTextBox.Text, out double weight) ||
+            !double.TryParse(HeightTextBox.Text, out double height))
+        {
+            MessageBox.Show("Please enter valid numeric values for age, weight, and height.");
+            return;
+        }
+
+        User _user = new User
+        {
+            Name = nameInput,
+            Age = age,
+            Weight = weight,
+            HeightCm = height
+        };
+
+        _user.CalculateBmI();
+        Users.Add(_user);
+        MessageBox.Show($"Hello {_user.Name}\nYour BMI is: {_user.BMI:F2}\n{_user.Category}");
+        SaveUserInfo(_user.Name, _user.HeightCm, _user.Weight, _user.BMI);
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show("Error: " + ex.Message);
+    }
+}
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
